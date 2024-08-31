@@ -10,7 +10,7 @@ class ConfigEnv
      * Create a new class instance.
      */
     public function __construct(
-        #[Config('app.env', 'production')] public string $env
+        #[Config(key: 'app.env', default: 'production')] public string $env
     )
     {
         //
