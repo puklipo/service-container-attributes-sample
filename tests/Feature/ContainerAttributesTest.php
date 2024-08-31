@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\AuthUser;
 use App\ConfigEnv;
+use App\Env;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -29,5 +30,12 @@ class ContainerAttributesTest extends TestCase
         $test = app(AuthUser::class);
 
         $this->assertSame('Test User', $test->user->name);
+    }
+
+    public function test_current_env(): void
+    {
+        $test = app(Env::class);
+
+        $this->assertSame('testing', $test->env);
     }
 }
